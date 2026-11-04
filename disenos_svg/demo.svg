@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240">
+  <title>Diseño de muestra — TermoPlast</title>
+  <rect x="0" y="0" width="240" height="240" rx="18" fill="#eef7f4"/>
+  <circle cx="120" cy="120" r="92" fill="none" stroke="#15b3a6" stroke-width="10"/>
+  <!-- flechas de reciclaje estilizadas -->
+  <g fill="#0e8f86">
+    <path d="M120 44 l20 34 h-14 v26 h-12 v-26 h-14 z"/>
+    <path d="M196 158 l-10 38 l-30 -22 l12 -7 l-13 -22 l10 -6 l13 22 z"/>
+    <path d="M44 158 l38 10 l-18 27 l-5 -13 l-26 8 l-3 -11 l26 -8 z" transform="translate(6,0)"/>
+  </g>
+  <circle cx="120" cy="120" r="30" fill="#20c3b2"/>
+  <text x="120" y="226" text-anchor="middle" font-family="sans-serif" font-size="15" font-weight="700" fill="#0f3b36">TermoPlast — muestra</text>
+</svg>

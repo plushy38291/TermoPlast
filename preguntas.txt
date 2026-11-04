@@ -1,0 +1,5 @@
+Cuando en la defensa te pregunten "¿y si tienen 500 pedidos?", tu respuesta ya no es un "no lo pensé". Es esto, que suena a profesional:
+
+"Lo analicé. Es un problema de escalabilidad que aparecería con cientos de pedidos. Pero decidí no implementarlo porque el sistema tiene una restricción física: la capacidad de la máquina 
+acota el volumen realista a decenas de pedidos, no cientos. Aplicar paginación o búsqueda ahí sería sobre-ingeniería. Si el proyecto escalara a nivel industrial, la solución conocida sería
+ agregar paginación y un buscador en el historial — el diseño actual lo permite sin rehacer nada, porque la consulta ya sale de la base de datos."

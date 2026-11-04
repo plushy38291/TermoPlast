@@ -1,0 +1,31 @@
+# Credenciales y secretos — NUNCA subir a un repo público
+credenciales.txt
+
+# Diseños reales subidos por los emprendedores (solo el contenido;
+# se conservan las carpetas, sus .gitkeep y los .htaccess de protección)
+disenos_svg/*.svg
+!disenos_svg/demo.svg
+disenos/*.svg
+uploads/**/*.svg
+uploads/*.svg
+
+# Logs
+*.log
+
+# Artefactos del chatbot (modelo entrenado y evaluaciones)
+chatbot/__pycache__/
+chatbot/*.pkl
+chatbot/*.joblib
+chatbot/evaluacion.txt
+
+# Sistema / editores
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Entorno virtual del chatbot (específico de cada PC)
+chatbot/venv/
+
+# Capturas generadas por la auditoría visual
+tools/_capturas/

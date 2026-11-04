@@ -1,0 +1,92 @@
+{
+  "descripcion": "Base de conocimiento de TermoPlast para fundamentar (grounding) las respuestas del chatbot. Son los HECHOS del sistema; el asistente debe responder SOLO con esta información y nunca inventar datos. El campo 'claves' suma sinónimos para mejorar la recuperación.",
+  "entradas": [
+    {"id": "que_es", "tema": "Qué es TermoPlast",
+     "claves": "que es, de que se trata, para que sirve, plataforma, sistema, objetivo, diferenciales",
+     "texto": "TermoPlast es una plataforma web que transforma tapitas plásticas recicladas (HDPE y PP) en piezas para emprendedores. Tiene tres diferenciales: impacto ambiental medible por pieza, carga del diseño propio del emprendedor, y trazabilidad de la producción. El flujo es: subís un diseño, pedís tus piezas y seguís cada etapa de fabricación."},
+
+    {"id": "materiales", "tema": "Materiales",
+     "claves": "material, materiales, plastico, de que estan hechas, composicion, hdpe, pp, polimero, tapitas",
+     "texto": "Se trabaja con dos plásticos reciclados post-consumo provenientes de tapitas: HDPE y PP. Cada material tiene un factor de CO₂ distinto, que se usa para calcular el impacto real por pieza."},
+
+    {"id": "tipos_piezas", "tema": "Tipos de piezas",
+     "claves": "que fabrican, que puedo pedir, productos, piezas, maceta, portavasos, llavero, objetos",
+     "texto": "Por ahora se fabrican macetas, portavasos y llaveros en plástico reciclado. El emprendedor sube su diseño en SVG y se moldea dentro de los límites de la máquina."},
+
+    {"id": "proceso", "tema": "Proceso y etapas de producción",
+     "claves": "etapas, estados, proceso, produccion, en que anda, trazabilidad, registrado, calentamiento, moldeado, finalizado",
+     "texto": "La producción tiene cuatro estados que se ven en Seguimiento: Registrado, En calentamiento, Moldeado y Finalizado. Cuando el pedido está Finalizado queda listo para retirar. Cada pedido tiene trazabilidad etapa por etapa y un código QR."},
+
+    {"id": "como_pedir", "tema": "Cómo hacer un pedido",
+     "claves": "como pedir, hacer pedido, encargar, solicitar, comprar, cantidad, cuantas unidades, minimo",
+     "texto": "Para pedir hace falta un diseño aprobado. Se entra a Hacer Pedido, se elige el diseño, el material y la cantidad; al instante se ve el plástico y el CO₂ estimados. No hay cantidad mínima: se puede pedir desde 1 unidad."},
+
+    {"id": "como_subir", "tema": "Cómo subir un diseño",
+     "claves": "subir diseño, cargar, como mando mi diseño, vector, idea, previsualizacion, aprobacion",
+     "texto": "Para subir un diseño se entra a ¿Tenés una idea?, se carga el archivo SVG y se indica el tipo de pieza y las medidas. El taller lo revisa y lo aprueba o sugiere ajustes. Hay previsualización 2D/3D al subirlo."},
+
+    {"id": "formato", "tema": "Formato de archivo",
+     "claves": "formato, archivo, extension, svg, vector, illustrator, inkscape, figura, png, jpg, que formato",
+     "texto": "El diseño debe ser un archivo SVG (vectorial). Se puede exportar desde Illustrator, Inkscape (gratis) o Figma. Solo se admite SVG."},
+
+    {"id": "limites", "tema": "Límites de la máquina",
+     "claves": "tamaño, medida maxima, que tan grande, dimensiones, limite, cuanto mide, cabe, grande, alto, ancho",
+     "texto": "La máquina trabaja piezas de hasta 80 × 50 cm y aproximadamente 20 cm de alto. Los diseños que superen esas medidas se rechazan automáticamente al cargarlos."},
+
+    {"id": "tiempos", "tema": "Tiempos de fabricación",
+     "claves": "cuanto tarda, demora, tiempo, plazo, cuando esta listo, demora dias, rapido",
+     "texto": "No hay un plazo fijo: el tiempo depende del tipo de pieza y de la cola del taller. El avance se sigue en Seguimiento, que se actualiza etapa por etapa."},
+
+    {"id": "costos", "tema": "Costos y pago",
+     "claves": "costo, precio, cuanto sale, pagar, pago, plata, dinero, tarjeta, efectivo, cuesta, gratis",
+     "texto": "TermoPlast no cobra en dinero. El costo es el plástico que se aporta (tapitas recicladas). El sistema calcula cuántas tapitas lleva el pedido y cuánto CO₂ se evita."},
+
+    {"id": "tapitas", "tema": "Aporte de tapitas",
+     "claves": "tapitas, aportar, llevar material, cuantas tapitas, peso, gramos, juntar",
+     "texto": "El sistema calcula cuántas tapitas necesita cada pedido. Cómo se aporta el material (si lo lleva el emprendedor o lo pone el taller) se coordina en el punto de retiro. El peso de referencia es de aproximadamente 2,5 gramos por tapita."},
+
+    {"id": "impacto", "tema": "Impacto ambiental y cómo se mide",
+     "claves": "impacto, co2, ambiental, ecologico, cuanto reciclo, huella, kg reciclados, medir",
+     "texto": "Cada pieza desvía plástico de la basura y lo convierte en un producto útil (economía circular). Se mide kg de plástico reciclado y CO₂ evitado por pedido, visibles en la sección Impacto. El CO₂ evitado se calcula con el factor de cada material por los gramos reciclados."},
+
+    {"id": "retiro", "tema": "Punto de retiro",
+     "claves": "retiro, retirar, donde busco, donde las retiro, punto, ubicacion, direccion, escuela, lugar",
+     "texto": "El punto de retiro es la Escuela Técnica N° 3 Roberto Arlt. Cuando el pedido está Finalizado, aparece en Seguimiento listo para retirar. El retiro es presencial; los días y horarios exactos se coordinan en ese punto."},
+
+    {"id": "envio", "tema": "Envíos",
+     "claves": "envio, envian, mandan a domicilio, delivery, correo, me lo mandan, despacho",
+     "texto": "Por ahora no hay envío a domicilio: el retiro es presencial en el punto de retiro. Cuando el pedido está listo, se avisa por el estado del pedido."},
+
+    {"id": "calidad", "tema": "Calidad y resistencia",
+     "claves": "calidad, resistencia, aguanta, agua caliente, lavar, lavavajillas, se rompe, durabilidad, fuerte, uso",
+     "texto": "Las piezas son de HDPE o PP reciclado, resistentes para uso cotidiano. La resistencia exacta varía según el material y el espesor elegido. El HDPE y el PP toleran bien el contacto con agua."},
+
+    {"id": "colores", "tema": "Colores",
+     "claves": "color, colores, de que color, pintar, matiz, tono",
+     "texto": "El color depende del plástico reciclado con el que se moldea (según las tapitas disponibles), así que no se garantiza un color exacto. Se coordina al momento de fabricar."},
+
+    {"id": "sustentabilidad", "tema": "Sustentabilidad y economía circular",
+     "claves": "sustentable, sustentabilidad, economia circular, medio ambiente, por que, reciclar, verde",
+     "texto": "El diferencial ambiental es medir el impacto por pieza: cada pedido muestra los kg reciclados y el CO₂ evitado. La idea es cerrar el ciclo del plástico (economía circular) dándole valor a las tapitas."},
+
+    {"id": "cuenta_registro", "tema": "Registro y cuenta",
+     "claves": "registrarme, registro, crear cuenta, darme de alta, inscribirme, cuenta nueva, email",
+     "texto": "El alta se hace desde Registrarme en la pantalla de acceso, cargando nombre, email y una contraseña. Después se inicia sesión y ya se puede subir diseños y pedir."},
+
+    {"id": "seguridad", "tema": "Seguridad de la cuenta",
+     "claves": "contraseña, cambiar clave, 2fa, dos pasos, seguridad, verificacion, olvide la contraseña",
+     "texto": "La verificación en dos pasos (2FA) y el cambio de contraseña se manejan desde Mi Perfil. Ahí se activa o desactiva el 2FA y se actualiza la clave."},
+
+    {"id": "cancelar", "tema": "Cancelar o modificar un pedido",
+     "claves": "cancelar, anular, modificar, cambiar pedido, dar de baja, arrepenti",
+     "texto": "Un pedido se puede cancelar mientras no esté en una etapa avanzada de producción. El estado de cada pedido se ve en Seguimiento."},
+
+    {"id": "roles", "tema": "Roles del sistema",
+     "claves": "roles, quien usa, admin, administrador, operador, emprendedor, permisos",
+     "texto": "Hay tres roles: emprendedor (sube diseños, hace pedidos y ve su impacto), y en el panel de administración el administrador y el operador (gestionan pedidos, diseños, materiales y puntos de retiro)."},
+
+    {"id": "qr", "tema": "Código QR y trazabilidad",
+     "claves": "qr, codigo, escanear, celular, ficha publica, seguir desde el telefono",
+     "texto": "Cada pedido tiene un código QR que lleva a una ficha pública con el estado de producción, para seguir la trazabilidad desde el celular sin iniciar sesión."}
+  ]
+}

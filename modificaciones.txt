@@ -1,0 +1,14 @@
+una aclaracion en la parte de "cola de fabricacion de pedidos" deberian de aparecer los diferentes pedidos pero no se cargan por lo que tambien deberemos ver eso, tambien conectar las diferentes calculos de el apartado de "plastico procesado", "Pedidos en cola" y "moldes finalizados" se espera que se trabaje en el panel con todos los datos que maneja la aplicacion (osea todos los calculos de los diferentes usuarios). 
+Agregar solo una direccion disponible para ir a retirar los pedidos "escuela tecnica Nro 3 Roberto Artl".
+En esta parte es necesario que quede todo horizontalmente porque verticalmente se ve mal, tmb con un diseño un poco mejor y con un poco de estilo css parecido al que viene teniendo estaria mejor mas teniendo en cuenta que seria un poco como "el final de la pagina" asi que tomar como referencia como se ve diferentes paginas y hacerlo de forma parecida (ACLARACION todo los datos que se vean o que digan algo que sea con versiones anteriores debe de actualizarse)
+
+
+Correcciones de la imagen 2.
+En todo ese apartado debe de considerarse lo siguiente, la maquina real tiene un tamaño de 80 x 50 y una toleracia de aproximanente 20 centimetros de altura por lo que nesecitamos trabajar con pequeñas cosas primero (No hace falta ACLARAR COMO INTERFAZ DEL USUARIO que no se puede trabajar con cosas grandes debido que queda como una limitacion que exponemos frente al cliente, debe de simplemente mencionar las opciones y las dimensiones tolerables lo que se pase de esas medidas debe de ser rechazado automaticamente)
+
+
+Es necesario que se creen credenciales unicas para el administrador yo luego modificare las credenciales pero es necesario hacerlo.
+
+Imagen 3: En este apartado hace falta mas diseño, considerar siempre con que tipo de animacion y estilo estamos trabajando en caso de que no los tenga se debera agregar diferentes estilos y animaciones para que sea visualmente mas atractivo
+
+a nivel general la seguridad debe de cubrir intentos de vulneracion basicos como inyeccion sql, inicio de sesion doble, entrar mediante url etc.

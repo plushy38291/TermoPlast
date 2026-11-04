@@ -1,0 +1,18 @@
+# ===========================================================
+#  .htaccess (raíz) — endurecimiento general del sitio
+# ===========================================================
+
+# Sin listado de directorios (no exponer la lista de archivos)
+Options -Indexes
+
+# Bloquear el acceso web a archivos sensibles: credenciales, dumps SQL,
+# notas, logs y config. El servidor nunca los entrega al navegador.
+<FilesMatch "\.(sql|md|log|txt|ini|sh|bak)$">
+    Require all denied
+</FilesMatch>
+
+# Bloquear archivos ocultos (.git, .env, el propio .htaccess ya lo
+# protege Apache por defecto).
+<FilesMatch "^\.">
+    Require all denied
+</FilesMatch>

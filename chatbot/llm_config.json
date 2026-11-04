@@ -1,0 +1,11 @@
+{
+  "_ayuda": "Config de la capa LLM. backend: 'off' (solo respuestas fijas) | 'extractivo' (offline, arma la respuesta con el conocimiento recuperado) | 'openai' (API compatible: nube u Ollama). Para la NUBE poné tu clave en la variable de entorno TERMOPLAST_LLM_KEY (recomendado, no se versiona) o acá en api_key. Ejemplos de base_url: OpenAI https://api.openai.com/v1 (model gpt-4o-mini) · Groq https://api.groq.com/openai/v1 (model llama-3.1-8b-instant) · Ollama local http://127.0.0.1:11434/v1 (model llama3.2).",
+  "nombre_asistente": "Asistente TermoPlast",
+  "backend": "extractivo",
+  "base_url": "https://api.openai.com/v1",
+  "model": "gpt-4o-mini",
+  "api_key": "",
+  "temperature": 0.2,
+  "max_tokens": 320,
+  "timeout": 12
+}

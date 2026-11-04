@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TermoPlast — Prototipo navegable y mapa de pantallas (V4.1)</title>
+<style>
+  :root{
+    --bg:#dcf0ec; --surface:#ffffff; --ink:#0f3b36; --muted:#5b7d77;
+    --primary:#15b3a6; --deep:#0e8f86; --accent:#20c3b2; --soft:#b9e8e0; --border:#cfe6e0;
+    --radius:16px; --shadow:0 10px 30px rgba(14,143,134,.10);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--ink);
+    background:
+      radial-gradient(circle at 12% 0,rgba(32,195,178,.10),transparent 42%),
+      radial-gradient(circle at 92% 8%,rgba(21,179,166,.10),transparent 45%),
+      var(--bg);
+    background-attachment:fixed; line-height:1.5; padding:0 16px;}
+  .wrap{max-width:1080px;margin:0 auto;padding:40px 0 70px}
+  header.hero{text-align:center;margin-bottom:10px}
+  .logo{display:inline-flex;align-items:center;gap:10px;font-weight:800;color:var(--deep);font-size:1.15rem}
+  .logo .mk{width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,var(--primary),var(--deep));display:inline-block}
+  h1{font-size:2rem;margin:.5rem 0 .2rem;letter-spacing:-.02em}
+  .sub{color:var(--muted);max-width:640px;margin:0 auto .3rem}
+  .ver{display:inline-block;margin-top:8px;font-size:.78rem;font-weight:700;color:var(--deep);
+    background:var(--soft);padding:4px 12px;border-radius:999px}
+  h2{font-size:1.25rem;margin:46px 0 14px;display:flex;align-items:center;gap:10px}
+  h2::before{content:"";width:5px;height:22px;border-radius:3px;background:var(--primary)}
+  /* mapa de navegación */
+  .mapcard{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+    box-shadow:var(--shadow);padding:22px;overflow-x:auto}
+  .zones{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;min-width:720px}
+  .zone{border:1.5px solid var(--border);border-radius:14px;padding:14px;background:linear-gradient(180deg,rgba(185,232,224,.25),transparent)}
+  .zone h3{margin:0 0 4px;font-size:.95rem;color:var(--deep)}
+  .zone .tag{font-size:.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+  .zone ul{margin:10px 0 0;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:6px}
+  .zone li{font-size:.86rem;padding:7px 10px;border-radius:9px;background:#f3faf8;border:1px solid var(--border)}
+  .zone li b{color:var(--deep)}
+  .flowline{color:var(--muted);font-size:.82rem;margin-top:12px}
+  .flowline code{background:var(--soft);color:var(--deep);padding:1px 7px;border-radius:6px;font-size:.82rem}
+  /* catálogo */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+    box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column;transition:transform .18s ease,box-shadow .18s ease}
+  .card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(14,143,134,.16)}
+  .thumb{display:block;position:relative;background:#eef7f4;border-bottom:1px solid var(--border);
+    height:190px;overflow:hidden}
+  .thumb img{width:100%;display:block}
+  .num{position:absolute;top:10px;left:10px;z-index:2;background:var(--deep);color:#fff;font-weight:800;
+    font-size:.8rem;width:26px;height:26px;border-radius:8px;display:flex;align-items:center;justify-content:center;
+    box-shadow:0 2px 8px rgba(0,0,0,.2)}
+  .zbadge{position:absolute;top:10px;right:10px;z-index:2;font-size:.66rem;font-weight:700;text-transform:uppercase;
+    letter-spacing:.04em;padding:3px 8px;border-radius:999px;color:#fff}
+  .z-pub{background:#64748b}.z-emp{background:var(--primary)}.z-adm{background:var(--deep)}
+  .body{padding:14px 16px 16px}
+  .body h3{margin:0 0 4px;font-size:1rem}
+  .body p{margin:0 0 8px;color:var(--muted);font-size:.86rem}
+  .links{font-size:.78rem;color:var(--deep)}
+  .links b{color:var(--muted);font-weight:600}
+  footer{text-align:center;color:var(--muted);font-size:.82rem;margin-top:50px}
+  @media (max-width:560px){ h1{font-size:1.5rem} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="hero">
+    <div class="logo"><span class="mk"></span> TermoPlast</div>
+    <h1>Prototipo navegable y mapa de pantallas</h1>
+    <p class="sub">Las 19 pantallas del sistema con la identidad turquesa y la “forma mockup”, y cómo se conectan entre sí. Hacé clic en cualquier captura para verla en grande.</p>
+    <span class="ver">Versión 4.1 · Mateo Porcel · E.E.S.T. N°3 “Roberto Arlt”</span>
+  </header>
+
+  <h2>Mapa de navegación</h2>
+  <div class="mapcard">
+    <div class="zones">
+      <div class="zone">
+        <span class="tag">Zona pública</span>
+        <h3>Entrada</h3>
+        <ul>
+          <li><b>Inicio</b> (landing) → Registro / Login</li>
+          <li><b>Crear cuenta</b> → Login</li>
+          <li><b>Iniciar sesión</b> → Panel</li>
+          <li><b>Recuperar contraseña</b> → Login</li>
+        </ul>
+      </div>
+      <div class="zone">
+        <span class="tag">Zona emprendedor</span>
+        <h3>Hub: Inicio (Panel)</h3>
+        <ul>
+          <li><b>Hacer pedido</b> · elegir diseño/material</li>
+          <li><b>Subir diseño</b> (SVG) → Mis diseños</li>
+          <li><b>Mis diseños</b> · estado/aprobación</li>
+          <li><b>Seguimiento</b> · trazabilidad + QR</li>
+          <li><b>Impacto</b> · métricas y gráficos</li>
+          <li><b>Puntos de retiro</b> (mapa) · <b>Perfil</b></li>
+        </ul>
+      </div>
+      <div class="zone">
+        <span class="tag">Zona administración</span>
+        <h3>Acceso admin</h3>
+        <ul>
+          <li><b>Dashboard</b> · KPIs + gráficos (SP)</li>
+          <li><b>Gestión</b> de pedidos y diseños</li>
+          <li><b>ABM</b> · materiales, etiquetas, puntos, emprendedores, usuarios</li>
+          <li><b>Seguridad</b> · auditoría de eventos</li>
+          <li><b>Exportar</b> CSV/PDF · <b>Crear admin</b></li>
+        </ul>
+      </div>
+    </div>
+    <p class="flowline">Flujo típico: <code>Inicio</code> → <code>Registro</code> → <code>Login</code> → <code>Panel</code> → (<code>Subir diseño</code> → aprobación del taller) → <code>Hacer pedido</code> → <code>Seguimiento</code> (QR) → <code>Impacto</code>. El <b>operador/admin</b> entra por <code>admin_login</code> y trabaja el pedido en <code>Gestión</code>, que alimenta el <code>Dashboard</code>.</p>
+  </div>
+
+  <h2>Catálogo de pantallas</h2>
+  <div class="grid" id="grid"></div>
+
+  <footer>TermoPlast V4.1 — prototipo navegable generado a partir del sistema real (identidad turquesa + forma mockup). Claro y oscuro soportados en la app.</footer>
+</div>
+
+<script>
+var SCREENS = [
+ ["01_index","Inicio (landing)","pub","Presentación pública del servicio y del impacto. Puerta de entrada.","Registro · Login"],
+ ["02_login","Iniciar sesión","pub","Acceso del emprendedor con email y contraseña.","→ Panel · Registro · Recuperar"],
+ ["03_registro","Crear cuenta","pub","Alta de un nuevo emprendedor (con medidor de fuerza de contraseña).","→ Login"],
+ ["04_recuperar","Recuperar contraseña","pub","Solicitud de enlace de recuperación por email.","→ Login"],
+ ["05_panel","Inicio del emprendedor","emp","Hub con resumen de impacto (stat-tiles + anillo de meta + sparkline) y accesos.","→ todo el área emprendedor"],
+ ["06_hacer_pedido","Hacer un pedido","emp","Elegir diseño aprobado, material y cantidad; estima plástico y CO₂.","→ Seguimiento"],
+ ["07_subir_diseno","Subir diseño (SVG)","emp","Carga del vector propio con previsualización 2D/3D para evaluar factibilidad.","→ Mis diseños"],
+ ["08_mis_disenos","Mis diseños","emp","Estado de cada diseño subido (aprobado / en revisión / rechazado).","→ Hacer pedido"],
+ ["09_seguimiento","Seguimiento","emp","Trazabilidad del pedido etapa por etapa + código QR + historial.","QR → Ficha pública"],
+ ["10_impacto","Impacto ecológico","emp","Métricas por pieza en forma mockup: stat-tiles, anillo de meta y gráficos.","—"],
+ ["11_perfil","Mi perfil","emp","Datos de la cuenta del emprendedor.","—"],
+ ["12_mapa","Puntos de retiro","emp","Mapa (Leaflet) de dónde retirar las piezas; degrada con elegancia sin internet.","—"],
+ ["13_admin_login","Acceso administrador","adm","Login del panel de administración (rol admin / operador).","→ Dashboard"],
+ ["14_dashboard","Dashboard analítico","adm","KPIs, tendencias y gauges; dos series salen de stored procedures.","—"],
+ ["15_admin_panel","Gestión (operación)","adm","Avance de pedidos y aprobación de diseños; mueve el flujo de producción.","alimenta Dashboard"],
+ ["16_abm","ABM (ej. Emprendedores)","adm","Alta/baja lógica/modificación/búsqueda. 5 entidades administrables.","materiales·etiquetas·puntos·emprendedores·usuarios"],
+ ["17_seguridad","Auditoría de seguridad","adm","Registro de eventos: ingresos correctos, intentos fallidos, bloqueos.","—"],
+ ["18_crear_admin","Arranque de admin","adm","Crea el primer admin una sola vez; inerte si ya existe (seguro por defecto).","→ Login admin"]
+];
+var LABEL = {pub:"Público", emp:"Emprendedor", adm:"Admin"};
+var g = document.getElementById('grid');
+SCREENS.forEach(function(s){
+  var id=s[0], title=s[1], z=s[2], desc=s[3], links=s[4];
+  var num=id.split('_')[0];
+  var a=document.createElement('div'); a.className='card';
+  a.innerHTML =
+    '<a class="thumb" href="img/'+id+'.jpg" target="_blank" rel="noopener">'+
+      '<span class="num">'+parseInt(num,10)+'</span>'+
+      '<span class="zbadge z-'+z+'">'+LABEL[z]+'</span>'+
+      '<img loading="lazy" src="img/'+id+'.jpg" alt="'+title+'">'+
+    '</a>'+
+    '<div class="body"><h3>'+title+'</h3><p>'+desc+'</p>'+
+    '<div class="links"><b>Navega a:</b> '+links+'</div></div>';
+  g.appendChild(a);
+});
+</script>
+</body>
+</html>

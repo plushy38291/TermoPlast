@@ -1,0 +1,58 @@
+===========================================================
+  CHATBOT TERMOPLAST — Instalación en Windows
+===========================================================
+
+El error "pip install -r requirements.txt" que te apareció es un crash de pip
+leyendo el METADATA de un paquete que YA estaba instalado en tu Python global
+(C:\Users\...\Python313\Lib\site-packages). Suele quedar de un intento anterior
+a medio instalar. La forma más segura de evitarlo es instalar en un ENTORNO
+VIRTUAL (venv), aislado de ese Python global.
+
+-----------------------------------------------------------
+OPCIÓN A — Fácil (doble clic)
+-----------------------------------------------------------
+1) Entrá a la carpeta "chatbot".
+2) Doble clic en  instalar_windows.bat   (crea el venv e instala todo).
+3) Cuando termine, doble clic en  iniciar_servicio.bat  para prender el chatbot.
+   Dejá esa ventana abierta mientras uses el chat.
+
+-----------------------------------------------------------
+OPCIÓN B — Manual (consola)
+-----------------------------------------------------------
+Abrí una terminal en la carpeta "chatbot" y ejecutá, una por una:
+
+    python -m venv venv
+    venv\Scripts\activate
+    python -m pip install --upgrade pip
+    pip install -r requirements.txt
+
+Para iniciar el servicio (con el venv activado):
+
+    python app.py
+
+La próxima vez que quieras usarlo, solo:  venv\Scripts\activate  y  python app.py
+
+-----------------------------------------------------------
+PLAN B — Si NO querés usar venv y preferís arreglar el Python global
+-----------------------------------------------------------
+1) Actualizá pip (muchas veces alcanza):
+
+    python -m pip install --upgrade pip setuptools wheel
+
+2) Si sigue el mismo error, hay un paquete roto en site-packages. Para ubicarlo,
+   ejecutá esto (te dice si alguna carpeta .dist-info tiene el METADATA ilegible):
+
+    python -c "import importlib.metadata as m; [print('ROTO:', d.name) for d in m.distributions() if (lambda: (_ for _ in ()).throw(Exception)) and False]"
+
+   (Más simple: borrá del site-packages cualquier carpeta que empiece con '~'
+    —por ejemplo '~umpy'— que son restos de instalaciones fallidas, y reintentá.)
+
+3) Reintentá:  python -m pip install -r requirements.txt
+
+-----------------------------------------------------------
+NOTAS
+-----------------------------------------------------------
+- NO subas la carpeta "venv" a GitHub (es pesada y específica de tu PC).
+- El chatbot necesita que esta ventana del servicio esté abierta; la web (PHP)
+  le habla a http://127.0.0.1:5001. Si el servicio está apagado, el chat avisa
+  "el asistente no está disponible" y el resto del sitio funciona igual.

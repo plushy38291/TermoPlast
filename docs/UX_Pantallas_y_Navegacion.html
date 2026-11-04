@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>TermoPlast — Pantallas y navegación (UX)</title>
+<style>
+  body{font-family:Helvetica,Arial,sans-serif;max-width:1000px;margin:24px auto;padding:0 18px;color:#1e293b;line-height:1.5}
+  h1{text-align:center;margin-bottom:4px}
+  .sub{text-align:center;color:#475569;margin-top:0}
+  h2{background:#17a866;color:#fff;padding:7px 12px;border-radius:7px;margin-top:26px;font-size:1.05rem}
+  h2.adm{background:#3b82f6} h2.pub{background:#64748b}
+  table{border-collapse:collapse;width:100%;font-size:0.86rem;margin:8px 0 4px}
+  th,td{border:1px solid #cbd5e1;padding:7px 9px;text-align:left;vertical-align:top}
+  th{background:#f1f5f9}
+  code{background:#f1f5f9;padding:1px 4px;border-radius:3px;font-size:0.9em}
+  .nota{background:#fef9c3;border:1px solid #fde68a;border-radius:8px;padding:12px 14px;margin:14px 0}
+  img{max-width:100%;border:1px solid #e2e8f0;border-radius:8px;margin:10px 0}
+  @media print{h2{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+</style>
+</head>
+<body>
+<h1>TermoPlast — Pantallas y navegación</h1>
+<p class="sub">Interfaz y UX · requisito 9 · documento de apoyo para el prototipo</p>
+
+<p>El sistema tiene <strong>19 pantallas</strong> implementadas y funcionando (muy por encima del mínimo de 5),
+agrupadas en tres zonas según el rol: <strong>Público</strong>, <strong>Emprendedor</strong> (usuario básico) y
+<strong>Administración</strong> (administrador / operador). La navegación está definida y es consistente: cada zona
+tiene su barra de menú propia y el acceso se controla por rol.</p>
+
+<h2 class="pub">Zona pública (sin iniciar sesión)</h2>
+<table>
+<tr><th>Pantalla</th><th>Archivo</th><th>Para qué sirve</th></tr>
+<tr><td>Inicio</td><td><code>index.php</code></td><td>Landing del proyecto: propuesta de valor e ingreso.</td></tr>
+<tr><td>Login emprendedor</td><td><code>auth/login.php</code></td><td>Acceso de usuarios básicos.</td></tr>
+<tr><td>Registro</td><td><code>auth/registro_emprendedor.php</code></td><td>Alta de un nuevo emprendedor.</td></tr>
+<tr><td>Recuperar contraseña</td><td><code>auth/recuperar.php</code> · <code>restablecer.php</code></td><td>Flujo "olvidé mi contraseña" (token de un solo uso).</td></tr>
+<tr><td>Ficha pública por QR</td><td><code>pages/ficha_pedido.php</code></td><td>Estado de producción de un pedido al escanear su QR (sin login).</td></tr>
+</table>
+
+<h2>Zona emprendedor (usuario básico)</h2>
+<table>
+<tr><th>Pantalla</th><th>Archivo</th><th>Para qué sirve</th></tr>
+<tr><td>Panel / Inicio</td><td><code>pages/panel.php</code></td><td>Vista principal con accesos a todo.</td></tr>
+<tr><td>Hacer pedido</td><td><code>pages/hacer_pedido.php</code></td><td>Crear una orden a partir de un diseño aprobado.</td></tr>
+<tr><td>Subir diseño (2D/3D)</td><td><code>pages/subir_diseno.php</code></td><td>Cargar SVG con previsualización 2D y 3D en vivo.</td></tr>
+<tr><td>Seguimiento + QR</td><td><code>pages/seguimiento.php</code></td><td>Estado de pedidos, trazabilidad y QR por pedido.</td></tr>
+<tr><td>Mis diseños</td><td><code>pages/mis_disenos.php</code></td><td>Listado de diseños y su estado de aprobación.</td></tr>
+<tr><td>Impacto</td><td><code>pages/impacto.php</code></td><td>KPIs de impacto (kg reciclados, CO₂ evitado).</td></tr>
+<tr><td>Puntos de retiro (mapa)</td><td><code>pages/mapa.php</code></td><td>Mapa Leaflet con los puntos de retiro.</td></tr>
+<tr><td>Mi perfil</td><td><code>pages/perfil.php</code></td><td>Datos de la cuenta y 2FA.</td></tr>
+</table>
+
+<h2 class="adm">Zona administración (administrador / operador)</h2>
+<table>
+<tr><th>Pantalla</th><th>Archivo</th><th>Para qué sirve</th><th>Rol</th></tr>
+<tr><td>Login admin</td><td><code>admin/admin_login.php</code></td><td>Acceso al panel de control.</td><td>—</td></tr>
+<tr><td>Panel</td><td><code>admin/admin_panel.php</code></td><td>Aprobar diseños y avanzar estados de pedidos.</td><td>Ambos</td></tr>
+<tr><td>Dashboard</td><td><code>admin/dashboard.php</code></td><td>4 KPIs + 4 gráficos (Chart.js).</td><td>Ambos</td></tr>
+<tr><td>ABM (×5)</td><td><code>admin/abm.php</code></td><td>Materiales, Etiquetas, Puntos, Emprendedores, Usuarios.</td><td>Usuarios: solo admin</td></tr>
+<tr><td>Exportar</td><td><code>admin/exportar.php</code></td><td>Descarga de listados en CSV y PDF.</td><td>Ambos</td></tr>
+<tr><td>Seguridad</td><td><code>admin/admin_seguridad.php</code></td><td>Auditoría de eventos e intentos de login.</td><td>Solo admin</td></tr>
+</table>
+
+<h2 class="pub">Mapa de navegación</h2>
+<img src="Navegacion_TermoPlast.png" alt="Mapa de navegación de TermoPlast">
+
+<div class="nota">
+<strong>Sobre el prototipo en Figma.</strong> Las pantallas ya existen implementadas y navegables, así que el
+prototipo de Figma se arma reproduciendo estas vistas (podés tomar capturas de cada pantalla y enlazarlas siguiendo
+el mapa de navegación de arriba). Este documento define las pantallas y los enlaces para que el prototipo quede 1 a 1
+con el sistema. Es el único punto del requisito 9 que se completa dentro de Figma; todo lo demás (pantallas reales y
+navegación definida) ya está hecho.
+</div>
+
+</body>
+</html>

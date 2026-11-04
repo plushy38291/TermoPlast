@@ -1,0 +1,8 @@
+# Dependencias del microservicio del chatbot.
+# Pisos elegidos para que pip use SIEMPRE un wheel (binario) ya compilado
+# en Python 3.11, 3.12 y 3.13 (no hace falta compilador en la PC).
+flask>=3.0
+scikit-learn>=1.5.1
+# Para leer PDF al subir documentos al conocimiento (propuesta 1.1).
+# Si solo subís .txt/.md no es obligatorio, pero se recomienda.
+pdfminer.six>=20231228
